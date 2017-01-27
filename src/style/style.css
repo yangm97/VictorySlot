@@ -1,0 +1,162 @@
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #222;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6, div, p {
+    font-family: "Roboto", "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#ezslots .window {
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+#ezslots1 .window {
+    background-color: white;
+    font-size:40px;
+    font-family:arial,helvetica,sans-serif;
+    border:1px solid black;
+    /*border-radius: 8px;*/
+    margin-top:40px;
+}
+
+#section1 {
+    padding-top:50px;
+    min-height:600px;
+}
+
+#section2 {
+    padding-top:50px;
+    min-height:600px;
+}
+#section3 {
+    padding-top:50px;
+    min-height:600px;
+    background-color: #f7f7f7;
+}
+
+.vcash_link, .vcash_link:hover, .vcash_link:focus {
+    color: #b4082a;
+}
+
+.newsletter2 {
+    background: url(../images/slot_promo.jpg) center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+}
+
+.main-title {
+    text-align: center;
+    /*margin: 80px 0 50px;*/
+    font-size: 36px;
+    font-weight: 900;
+}
+
+.section-title {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 4px 8px;
+    color: white;
+    margin: 20px 0;
+}
+
+.header_section {
+    background-size: cover;
+    position: relative;
+}
+
+.btn-xl {
+    color: #fff;
+    background-color: #726FB9;
+    border-color: #726FB9;
+    font-family: "Robot",sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 20px 40px;
+}
+
+/* Custom navbar */
+.navbar-default {
+    background-color: #b4082a;
+    border-color: #c34113;
+}
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ffffff;
+}
+.navbar-default .navbar-text {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #c34113;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #c34113;
+}
+.navbar-default .navbar-toggle {
+    border-color: #c34113;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #c34113;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+    color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ffffff;
+        background-color: #c34113;
+    }
+}
