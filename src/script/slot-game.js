@@ -60,6 +60,9 @@ $(document).ready(function() {
         // Reinit stopLoop
         stopLoop = false;
 
+        $('#bet_status_win').hide();
+        $('#bet_status_lose').hide();
+
         // That call will init a new bet on server and return the reserved house_address for deposit
         $.getJSON("ajax.php?cm=getnewaddress", function(data) {
             betAddress = data.result;
@@ -130,6 +133,15 @@ $(document).ready(function() {
                     "symbols":images,"height":126,"width":126});
                 // Show resulting slot combination
                 var slot_result = ezslot1.win();
+
+                if (data.reward > 0) {
+                    $('#bet_status_win').show();
+                    $("#bet_status_win").text("You win " + data.reward + " XVC!");
+                }
+                else {
+                    $('#bet_status_lose').show();
+                    $("#bet_status_lose").text("You loose");
+                }
 
                 console.log(slot_result);
             }

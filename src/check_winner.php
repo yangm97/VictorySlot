@@ -87,8 +87,8 @@ if ($bet_data['received'] == false) {
     exit;
 }
 
-$user_address = $req_data['user_address'];
-$amount = $req_data['amount'];
+$user_address = $bet_data['user_address'];
+$amount = $bet_data['amount'];
 
 // If the user sends more coins than MAX_AMOUNT, refund him
 $amount_to_refund = 0;

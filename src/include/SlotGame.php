@@ -60,11 +60,11 @@ function identifyValue($reels) {
     * Evaluate the score and get symbols
     * Cherry	5	2	3
     * Orange	4	4	4
-    * Bell	3	4	4
-    * Seven	1	1	1
-    * Plum	3	3	1
-    * Lemon	3	5	6
-    * Bar     1	1	1
+    * Bell	    3	4	4
+    * Seven	    1	1	1
+    * Plum	    3	3	1
+    * Lemon	    3	5	6
+    * Bar       1	1	1
 
     *          Reel 1		Reel 2		Reel 3
     *          min	max	    min	max	    min	max
