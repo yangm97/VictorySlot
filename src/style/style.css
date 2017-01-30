@@ -50,6 +50,10 @@ h1, h2, h3, h4, h5, h6, div, p {
     color: #b4082a;
 }
 
+.game-result {
+    max-width: 200px;
+}
+
 .newsletter2 {
     background: url(../images/slot_promo.jpg) center fixed;
     background-size: cover;

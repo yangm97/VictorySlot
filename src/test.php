@@ -1,5 +1,7 @@
 <?php
 
+use game\SlotGame;
+
 // Test module
 session_start();
 header("Access-Control-Allow-Origin: *");
@@ -22,12 +24,14 @@ $starttime = microtime(true);
 //echo "\n\nrpc_getblockcount\n";
 //echo json_encode(VcashRpc::rpc_getblockcount(), JSON_PRETTY_PRINT);
 
+$the_game = new SlotGame();
+
 $total = 0;
 $bets = 0;
 
 for ($x = 1; $x <= 1000; $x++) {
-    $slot_values = launchFruitSlot();
-    $score = getComboScore($slot_values);
+    $slot_values = $the_game->launchFruitSlot();
+    $score = $the_game->getComboScore($slot_values);
     $bets --;
     $total = $total - 1 + $score;
 //    usleep(25000); // sleeps for 0.025 seconds

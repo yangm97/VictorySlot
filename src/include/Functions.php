@@ -1,5 +1,4 @@
 <?php
-
 /*
  * General use function
  *
@@ -7,6 +6,7 @@
 
 require_once 'Config.php';
 // Include slots functions
+require_once 'AbstractGame.php';
 require_once 'SlotGame.php';
 
 function isAjaxCall() {
@@ -35,7 +35,6 @@ function transferFunds($db, $total_amount, $house_address, $user_address) {
             $tot_balance = $rpc_balance['result'];
 
             if ($tot_balance > $total_amount) {
-
                 // Check if locked
                 // Set the lock in db
                 VcashDb::setBetLock($db, $bet_data); // Locked

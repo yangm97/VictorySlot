@@ -1,4 +1,6 @@
 <?php
+use game\SlotGame;
+
 // Ajax/json request module
 session_start();
 header("Access-Control-Allow-Origin: *");
@@ -98,9 +100,9 @@ if ($amount > MAX_AMOUNT) {
     $amount = MAX_AMOUNT;
 }
 
-// Play slots
-//$result = array("values"=>$slot_values, "indexes"=>$indexes, "score"=>$score);
-$result_slot = playFruitSlot();
+// Play game
+$the_game = new SlotGame();
+$result_slot = $the_game->playGame(); // returns array("values"=>$slot_values, "indexes"=>$indexes, "score"=>$score)
 $score = $result_slot['score'];
 // Calculate the reward
 $amount_to_pay = $amount * $score;

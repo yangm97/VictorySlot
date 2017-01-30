@@ -148,8 +148,12 @@ if (!isset($_SESSION["house_address"])) {
                         <br>
                         <br>
                         <div id="results"></div>
-                        <div class="alert alert-success" role="alert" id="bet_status_win" style="display: none;"></div>
-                        <div class="alert alert-danger" role="alert" id="bet_status_lose" style="display: none;"></div>
+                        <div class="row">
+                            <div class="center-block game-result">
+                                <div class="alert alert-success" role="alert" id="bet_status_win" style="display: none;"></div>
+                                <div class="alert alert-danger" role="alert" id="bet_status_lose" style="display: none;"></div>
+                            </div>
+                        </div>
                         <div id="payout_address">
                         </div>
                     </div>

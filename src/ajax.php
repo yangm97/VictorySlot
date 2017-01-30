@@ -1,4 +1,6 @@
 <?php
+use game\SlotGame;
+
 // Ajax/json request module
 session_start();
 header("Access-Control-Allow-Origin: *");
@@ -81,7 +83,8 @@ if(isset($_GET['cm'])) {
         exit;
     }
     elseif (strcasecmp($requestType, "test") == 0) {
-        $result = playFruitSlot();
+        $slot_game = new SlotGame();
+        $result = $slot_game->playGame();
         echo json_encode($result);
         exit;
     }

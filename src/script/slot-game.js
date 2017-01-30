@@ -126,7 +126,7 @@ $(document).ready(function() {
                 // Update win aray
                 win_array = data.details.indexes;
 
-                $("#results").text("Score: " + data.details.score + " - " + data.details.values.join());
+                $("#results").text("Score: " + data.details.score);
 
                 // Show slots
                 ezslot1 = new EZSlots("ezslots",{"reelCount":3,"winningSet":win_array,
