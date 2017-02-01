@@ -9,8 +9,8 @@ header("Content-Type: application/json;charset=utf-8");
 /**
  * Request rpc class and functions
  */
-require_once 'include/VcashRpc.php';
 require_once 'include/Functions.php';
+require_once 'include/VcashRpc.php';
 require_once 'include/BetDb.php';
 
 $ajax_request = isAjaxCall();

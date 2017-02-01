@@ -10,9 +10,9 @@ header("Content-Type: application/json;charset=utf-8");
 /**
  * Request rpc class and functions
  */
+require_once 'include/Functions.php';
 require_once 'include/VcashRpc.php';
 require_once 'include/BetDb.php';
-require_once 'include/Functions.php';
 
 $ajax_request = isAjaxCall();
 if(!$ajax_request) {
@@ -48,7 +48,7 @@ $data_response["details"] = json_decode($req_data['details']);
 // Check statuses UNKNOWN, Received, Locked, Closed
 if(!isset($req_data['status']) || $req_data['status'] == BetStatus::UNKNOWN) {
     // house_address not found in db
-    cleanBetSession();
+    setDefaultBetSessionVars();
 
     echo json_encode($data_response);
     exit;
@@ -57,7 +57,7 @@ elseif($req_data['status'] == BetStatus::LOCKED || $req_data['status'] == BetSta
     // We got a call for a closed bet or already locked (result set)
 
     // !!! Change session vars
-    cleanBetSession();
+    setDefaultBetSessionVars();
 
     echo json_encode($data_response);
     exit;
@@ -70,7 +70,7 @@ elseif($req_data['status'] == BetStatus::RECEIVED) {
     $data_response["status"] = $trans_status;
 
     // !!! Change session vars
-    cleanBetSession();
+    setDefaultBetSessionVars();
 
     echo json_encode($data_response);
     exit;
@@ -128,7 +128,7 @@ $trans_status = transferFunds($db, $total_amount, $house_address, $user_address)
 $data_response["status"] = $trans_status;
 
 // !!! Change session vars
-cleanBetSession();
+setDefaultBetSessionVars();
 
 echo json_encode($data_response);
 exit;

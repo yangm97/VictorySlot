@@ -19,9 +19,10 @@ function isAjaxCall() {
     return false;
 }
 
-function cleanBetSession() {
+function setDefaultBetSessionVars() {
     // !!! Change session vars
     $_SESSION["house_address"] = null;
+    $_SESSION["funds"] = 0;
 }
 
 // Transfer $total_amount to $user_address

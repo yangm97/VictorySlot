@@ -4,12 +4,13 @@
  * With parts of frontend from ZeroSlot
  */
 session_start();
-
 include("simple-php-captcha/simple-php-captcha.php");
+require_once 'include/Functions.php';
+
 $_SESSION['captcha'] = simple_php_captcha();
 
 if (!isset($_SESSION["house_address"])) {
-    $_SESSION["house_address"] = null;
+    setDefaultBetSessionVars();
 }
 
 ?><!DOCTYPE html>
