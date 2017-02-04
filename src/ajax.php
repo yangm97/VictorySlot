@@ -83,8 +83,26 @@ if(isset($_GET['cm'])) {
         exit;
     }
     elseif (strcasecmp($requestType, "test") == 0) {
+
         $slot_game = new SlotGame();
+        if (isset($_GET['rnd'])) {
+            $slot_game->setRandomType($_GET['rnd']);
+        }
         $result = $slot_game->playGame();
+
+        $_SESSION["nbr_play"]++;
+        $_SESSION["bet"]++;
+        $_SESSION["win"]+=$result['score'];
+
+        echo json_encode($result);
+        exit;
+    }
+    elseif (strcasecmp($requestType, "teststate") == 0) {
+        $result = 'Nbr: '.$_SESSION["nbr_play"].
+            ' - Bet: '.$_SESSION["bet"].
+            ' - Win: '.$_SESSION["win"].
+            ' - Net: '.($_SESSION["win"]-$_SESSION["bet"]);
+
         echo json_encode($result);
         exit;
     }

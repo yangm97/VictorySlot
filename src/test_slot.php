@@ -1,5 +1,17 @@
 <?php
 session_start();
+//session_destroy();
+//session_start();
+
+// Just for test purposes
+$_SESSION['captcha']['code'] = "test";
+$_SESSION["checked"] = true;
+
+if (!isset($_SESSION["nbr_play"])) {
+    $_SESSION["nbr_play"] = 0;
+    $_SESSION["bet"] = 0;
+    $_SESSION["win"] = 0;
+}
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -54,9 +66,12 @@ session_start();
                 var win_array = [0,0,0];
                 $("#ezslots1").empty();
                 $("#results").empty();
+                console.log("play");
+                var rnd_option = $('#rndselect option:selected').val();
 
-                $.getJSON( "ajax.php?cm=test", function(data)
+                $.getJSON( "ajax.php?cm=test&rnd="+rnd_option, function(data)
                 {
+                    console.log(data);
                     win_array = data.indexes;
                     $("#results").text("Score: " + data.score + " - " + data.values.join());
 
@@ -67,6 +82,17 @@ session_start();
                     console.log(ezslot1.win());
                 });
             });
+
+            function do_some_tick() {
+                intervalPoll = setInterval(function() {
+                    $.getJSON( "ajax.php?cm=teststate", function(data)
+                    {
+                        $("#state").text(data);
+                    });
+                }, 1000);
+            }
+
+            do_some_tick();
         });
     </script>
 </head>
@@ -104,17 +130,25 @@ session_start();
         <div class="col-lg-2"></div>
         <div class="col-xs-12 col-sm-12 col-lg-8">
             <!--                    Zone 2-->
-            <div id="ezslots1" style="text-align:center"></div>
+            <div id="ezslots1" style="min-height:180px; text-align:center;"></div>
             <div>
                 <br/>
             </div>
             <div style="text-align:center">
                 <button id="winwinwin1" class="btn btn-xl">Play!</button>
             </div>
-            <div>
+            <div style="text-align:center">
                 <br/>
+                <div id="results"></div>
+                <div id="state"></div>
+                <div>
+                    <br/>
+                    <select id="rndselect">
+                        <option value=1>MT_RAND</option>
+                        <option value=2>RANDOM_INT</option>
+                    </select>
+                </div>
             </div>
-            <div id="results" style="text-align:center"></div>
         </div>
         <div class="col-lg-2"></div>
     </div>

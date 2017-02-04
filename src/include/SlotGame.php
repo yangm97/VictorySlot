@@ -29,8 +29,15 @@ abstract class SlotPayTable {
     const CHERRY_ANY_ANY = 2;
 }
 
+abstract class RandomType {
+    const MERSENNE_TWISTER  = 1;
+    const CSPRNG = 2;
+}
+
 
 class SlotGame extends AbstractGame {
+
+    private $rnd_type = RandomType::CSPRNG;
 
     // Return game type
     public function gameType() {
@@ -44,8 +51,16 @@ class SlotGame extends AbstractGame {
         $score = $this->getComboScore($slot_values); // Score for given value
         $indexes = $this->getFruitIndexes($slot_values); // Indexes used by ezslots frontend
         // Format des données
-        $result = array("values"=>$slot_values, "indexes"=>$indexes, "score"=>$score);
+        $result = array("values"=>$slot_values, "indexes"=>$indexes, "score"=>$score, "rnd"=>$this->randomType());
         return $result;
+    }
+
+    public function randomType() {
+        return $this->rnd_type;
+    }
+
+    public function setRandomType($rnd) {
+        $this->rnd_type = $rnd;
     }
 
     public function launchFruitSlot() {
@@ -63,7 +78,15 @@ class SlotGame extends AbstractGame {
 
 
     public function getRandomVal($min, $max) {
-        return mt_rand($min, $max);
+        switch ($this->randomType()) {
+            case RandomType::MERSENNE_TWISTER:
+                return mt_rand($min, $max);
+            case RandomType::CSPRNG:
+                return random_int($min, $max);
+            default:
+                // RandomType::CSPRNG
+                return random_int($min, $max);
+        }
     }
 
 

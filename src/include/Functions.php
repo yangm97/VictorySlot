@@ -5,6 +5,7 @@
  */
 
 require_once 'Config.php';
+require_once 'random_compat/lib/random.php';
 // Include slots functions
 require_once 'AbstractGame.php';
 require_once 'SlotGame.php';

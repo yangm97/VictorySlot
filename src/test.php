@@ -17,6 +17,15 @@ require_once 'include/Functions.php';
 $starttime = microtime(true);
 /* do stuff here */
 
+$rounds = 1000;
+if (isset($_GET['rnd'])) {
+    $rounds = $_GET['rnd'];
+    // Max rounds
+    if ($rounds > 1000000) {
+        $rounds = 1000000;
+    }
+}
+
 //echo "rpc_getinfo\n";
 //echo json_encode(VcashRpc::rpc_getinfo(), JSON_PRETTY_PRINT);
 //echo "\n\nrpc_getbalance\n";

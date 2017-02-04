@@ -26,7 +26,8 @@ The game follows the payout rules of a fruit slot from http://wizardofodds.com/g
 ## Credits
 
 > These projects are used inside VictorySlot
-
+* PHP 5.x support for random_bytes() and random_int() 
+[random_compat](https://github.com/paragonie/random_compat)
 * JQuery "Slot Machine Construction Kit" 
 [ezSlots](https://github.com/kirkjerk/ezslots)
 * A simple PHP CAPTCHA script
