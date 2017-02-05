@@ -22,11 +22,11 @@ $endtime = microtime(true);
 $timediff = $endtime - $starttime;
 echo json_encode($timediff);
 
-echo "$$$";
+var_dump("$$$");
 
 $starttime = microtime(true);
 $res = array_fill(0,10,0);
-for ($i = 0; $i < 1000; ++$i) {
+for ($i = 0; $i < $rounds; ++$i) {
     $res[random_int(0,9)]++;
 }
 var_dump($res);

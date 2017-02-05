@@ -38,7 +38,7 @@ $the_game = new SlotGame();
 $total = 0;
 $bets = 0;
 
-for ($x = 1; $x <= 1000; $x++) {
+for ($x = 1; $x <= $rounds; $x++) {
     $slot_values = $the_game->launchFruitSlot();
     $score = $the_game->getComboScore($slot_values);
     $bets --;
