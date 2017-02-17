@@ -19,13 +19,13 @@ abstract class SlotPayTable {
     * cherry-cherry-any	    5
     * cherry-any-any	    2
     */
-    const THREE_SEVEN = 160; // 500
-    const THREE_BARS = 80;
-    const THREE_PLUMS = 40;
+    const THREE_SEVEN = 500;
+    const THREE_BARS = 100;
+    const THREE_PLUMS = 50;
     const THREE_BELLS = 20;
     const THREE_ORANGES = 15;
-    const THREE_CHERRIES = 8;
-    const CHERRY_CHERRY_ANY = 4;
+    const THREE_CHERRIES = 10;
+    const CHERRY_CHERRY_ANY = 5;
     const CHERRY_ANY_ANY = 2;
 }
 
@@ -37,7 +37,6 @@ abstract class RandomType {
 
 class SlotGame extends AbstractGame {
 
-//    private $rnd_type = RandomType::CSPRNG;
     private $rnd_type = RandomType::MERSENNE_TWISTER;
 
     // Return game type
