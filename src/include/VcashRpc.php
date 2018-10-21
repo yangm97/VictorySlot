@@ -9,7 +9,7 @@ class VcashRpc {
     private static function call_rpc($payload) {
         try {
             // Use JsonRpcClient library from https://github.com/jenolan/jsonrpcx-php/
-            $serverUrl = 'http://127.0.0.1:9195';
+            $serverUrl = 'http://'.VCASHD_HOST.':9195';
             $client = new JsonRpcClient($serverUrl);
             $response = $client->call($payload->method, $payload->params, $payload->id);
             // Decode the response
