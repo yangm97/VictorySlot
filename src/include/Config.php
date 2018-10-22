@@ -4,7 +4,7 @@
 define('DB_HOST', 'mysql');
 define('DB_NAME', 'VictorySlotDb');
 define('DB_USERNAME','VictorySlotDb');
-define('DB_PASSWORD','VictorySlotPw');
+define('DB_PASSWORD','VictorySlotDb');
 
 // Disable payouts
 define('PAYOUT_ENABLED', false);

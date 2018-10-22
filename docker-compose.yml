@@ -1,5 +1,11 @@
 version: "3.6"
 
+networks:
+  vcashd:
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+
 volumes:
   mysql:
   vcash:
@@ -7,24 +13,31 @@ volumes:
 services:
   victoryslot:
     build: .
+    networks:
+      default:
+      vcashd:
+        ipv4_address: 172.30.0.5
     ports:
       - "80:80"
 
   vcashd:
-    expose:
-      - 9195
+    command: --rpc-allow-ips=172.30.0.5
     image: yangm97/vcashd-docker
-    ports:
-      - "9195:9195"
+    networks:
+      vcashd:
+        ipv4_address: 172.30.0.6
     volumes:
       - vcash:/home/.Vcash
 
   mysql:
-    image: mysql:8
+    image: mysql:5.7
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_USER: VictorySlotDb
-      MYSQL_PASSWORD: VictorySlotPw
+      MYSQL_PASSWORD: VictorySlotDb
+      MYSQL_DATABASE: VictorySlotDb
+    ports:
+      - "3306:3306"
     volumes:
       - mysql:/var/lib/mysql
       - ./db/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
