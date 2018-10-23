@@ -321,7 +321,7 @@ if (!isset($_SESSION["house_address"])) {
 
 <!-- Footer -->
 <footer class="footer">
-    <h4>Powered By <a class="vcash_link" href="https://vcash.info/" >Vcash</a></h4>
+    <h4>Powered By <a class="vcash_link" href="https://vcash.community/" >Vcash</a></h4>
 </footer>
 <!-- Footer -->
 </body>
